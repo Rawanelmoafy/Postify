@@ -12,10 +12,10 @@ from chatbots.llm import voice_headers,voice_model
 settings = get_settings()
 
 sio = socketio.AsyncServer(async_mode="asgi", cors_allowed_origins="*")
+socket_app = socketio.ASGIApp(sio)
 
 
 def init_socket(app):
-    app.mount("/", socketio.ASGIApp(sio, app))
     
     @sio.on("init_user")
     async def init_user(sid, data = {} ):
