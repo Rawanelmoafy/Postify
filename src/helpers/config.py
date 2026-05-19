@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     BACKEND_URL : str
     HF_TOKEN : str
     VOICE_URL : str
+    TAVILY_API_KEY: str
     
     class Config:
         env_file = '.env'
